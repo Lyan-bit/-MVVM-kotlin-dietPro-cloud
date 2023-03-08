@@ -39,6 +39,7 @@ class FirebaseDbi() {
                     locals.addAll(Meal.MealAllInstances)
                     for (x in locals) {
                         if (keys.contains(x.mealId)) {
+                            //check
                         } else {
                             Meal.killMeal(x.mealId)
                         }
