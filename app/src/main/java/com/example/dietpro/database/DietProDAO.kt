@@ -92,6 +92,7 @@ class DietProDAO {
         for (item in rows.indices) {
             val row = rows[item]
             if (row == null || row.trim { it <= ' ' }.length == 0) {
+                //trim
             } else {
                 val x: Meal? = parseCSV(row)
                 if (x != null) {
@@ -173,6 +174,7 @@ class DietProDAO {
                 val ex: Meal = es[i]
                 val jx = writeJSON(ex)
                 if (jx == null) {
+                    //null
                 } else {
                     try {
                         result.put(jx)
