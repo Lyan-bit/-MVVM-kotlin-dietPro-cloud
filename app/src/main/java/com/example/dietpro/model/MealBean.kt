@@ -71,7 +71,9 @@ class MealBean(c: Context) {
 	         else {
 	               errors.add("mealId cannot be empty")
 	         }
-	          if (mealName != "") {}
+	          if (mealName != "") {
+		  //ok
+		  }
 	         else {
 	               errors.add("mealName cannot be empty")
 	         }
@@ -203,7 +205,8 @@ class MealBean(c: Context) {
     }
 
    fun isRemoveUsereatsMealError(): Boolean {
-        errors.clear()
+        //if statement
+	errors.clear()
         return errors.size > 0
     }
 
