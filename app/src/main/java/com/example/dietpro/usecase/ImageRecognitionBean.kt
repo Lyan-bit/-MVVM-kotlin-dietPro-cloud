@@ -8,12 +8,9 @@ import android.graphics.Matrix
 import android.media.ExifInterface
 import android.util.Base64
 import android.util.Log
-import com.example.dietpro.mlmodel.ImageClassifier
 import com.example.dietpro.model.Meal
 import com.example.dietpro.viewmodel.ImageRecognitionViewModel
 import com.example.dietpro.viewmodel.MealCRUDViewModel
-import java.io.File
-import java.io.IOException
 
 class ImageRecognitionBean(c: Context) {
     private var model: MealCRUDViewModel = MealCRUDViewModel.getInstance(c)
