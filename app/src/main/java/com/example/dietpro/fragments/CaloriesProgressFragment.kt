@@ -11,7 +11,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import com.example.dietpro.*
 import com.example.dietpro.usecase.CaloriesProgressBean
-import com.example.dietpro.viewmodel.MealCRUDViewModel
 import com.example.dietpro.viewmodel.UserCRUDViewModel
 import java.lang.Exception
 
