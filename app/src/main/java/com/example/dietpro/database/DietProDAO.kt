@@ -32,7 +32,7 @@ class DietProDAO {
         }
 
         fun isCached(id: String?): Boolean {
-            val x: Meal = Meal.MealIndex.get(id) ?: return false
+            Meal.MealIndex.get(id) ?: return false
             return true
         }
 
