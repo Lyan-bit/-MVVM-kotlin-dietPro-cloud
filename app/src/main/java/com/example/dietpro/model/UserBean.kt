@@ -84,11 +84,15 @@ class UserBean(c: Context) {
 	        
 	 errors.clear()
 	        
-	 	 	           if (userName != "") {}
+	 	 	           if (userName != "") {
+				   //ok
+				   }
 	else {
 	 	  errors.add("userName cannot be empty")
 	}
-          if (gender != "") {}
+          if (gender != "") {
+	  //ok
+	  }
 	else {
 	 	  errors.add("gender cannot be empty")
 	}
@@ -102,7 +106,9 @@ class UserBean(c: Context) {
 	} catch (e: Exception) {
 	  errors.add("weights is not a Double")
 	}
-          if (activityLevel != "") {}
+          if (activityLevel != "") {
+	  //ok
+	  }
 	else {
 	 	  errors.add("activityLevel cannot be empty")
 	}
