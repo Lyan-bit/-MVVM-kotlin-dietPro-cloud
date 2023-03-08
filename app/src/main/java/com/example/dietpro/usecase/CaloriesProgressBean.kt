@@ -2,7 +2,6 @@ package com.example.dietpro.usecase
 
 import android.content.Context
 import com.example.dietpro.model.User
-import com.example.dietpro.viewmodel.MealCRUDViewModel
 import com.example.dietpro.viewmodel.UserCRUDViewModel
 import java.util.*
 
