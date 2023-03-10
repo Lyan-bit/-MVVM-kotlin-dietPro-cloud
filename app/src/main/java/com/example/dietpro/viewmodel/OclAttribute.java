@@ -2,14 +2,15 @@ package com.example.dietpro.viewmodel;
 
 class OclAttribute {
 
-  OclAttribute() { }
+  OclAttribute() { 
+  //ocl
+  }
 
   OclAttribute(String nme)
   { name = nme; }
 
   static OclAttribute createOclAttribute()
-  { OclAttribute result = new OclAttribute();
-    return result;
+  { return new OclAttribute();
   }
 
   public void setType(OclType t)
