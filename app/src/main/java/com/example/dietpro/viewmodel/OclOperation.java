@@ -3,7 +3,9 @@ package com.example.dietpro.viewmodel;
 import java.util.ArrayList;
 
 class OclOperation
-{ OclOperation() { }
+{ OclOperation() {
+//catch
+}
 
   OclOperation(String nme)
   { name = nme; }
