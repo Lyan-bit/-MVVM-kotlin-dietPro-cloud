@@ -49,37 +49,4 @@ class ImageRecognitionViewModel constructor(myContext: Context) {
         bmOptions.inMutable = true
         return BitmapFactory.decodeFile(photoFile.absolutePath, bmOptions)
     }
-
-    fun rotateIfRequired(bitmap: Bitmap, photoFile: File) {
-        try {
-            val exifInterface = ExifInterface(
-                photoFile.absolutePath
-            )
-            val orientation = exifInterface.getAttributeInt(
-                ExifInterface.TAG_ORIENTATION,
-                ExifInterface.ORIENTATION_UNDEFINED
-            )
-            if (orientation == ExifInterface.ORIENTATION_ROTATE_90) {
-                rotateImage(bitmap, 90f)
-            } else if (orientation == ExifInterface.ORIENTATION_ROTATE_180) {
-                rotateImage(bitmap, 180f)
-            } else if (orientation == ExifInterface.ORIENTATION_ROTATE_270) {
-                rotateImage(bitmap, 270f)
-            }
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-    }
-
-    /**
-     * Rotate the given bitmap.
-     */
-    private fun rotateImage(source: Bitmap, angle: Float): Bitmap? {
-        val matrix = Matrix()
-        matrix.postRotate(angle)
-        return Bitmap.createBitmap(
-            source, 0, 0, source.width, source.height,
-            matrix, true
-        )
-    }
 }
