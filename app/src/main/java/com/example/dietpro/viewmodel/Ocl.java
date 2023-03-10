@@ -1,4 +1,4 @@
-package com.example.dietpro; // Place in the relevant package directory of your application.
+package com.example.dietpro.viewmodel; // Place in the relevant package directory of your application.
 
 /******************************
 * Copyright (c) 2003--2022 Kevin Lano
