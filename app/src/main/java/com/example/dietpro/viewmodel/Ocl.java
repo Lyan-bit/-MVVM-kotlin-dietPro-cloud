@@ -1,5 +1,4 @@
-package com.example.dietpro.viewmodel; // Place in the relevant package directory of your application.
-
+package com.example.dietpro; // Place in the relevant package directory of your application.
 
 /******************************
 * Copyright (c) 2003--2022 Kevin Lano
@@ -12,28 +11,24 @@ package com.example.dietpro.viewmodel; // Place in the relevant package director
 /* OCL library for Java version 8+ */
 
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import android.util.Log;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.function.Function;
+import java.util.HashSet;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.function.Predicate;
+import java.util.function.Function;
 
-// @FunctionalInterface
-// interface Predicate<T> {
-//     boolean test(T t);
-// }
-
-// @FunctionalInterface
-// interface Evaluation<S,T> {
-//      T evaluate(S s);
-// }
+ @FunctionalInterface
+ interface Evaluation<S,T> {
+      T evaluate(S s);
+ }
 
 class OclMaplet<K,T>
 { K key;
@@ -52,34 +47,34 @@ class OclMaplet<K,T>
     }
 
     public static void displayString(String s)
-    { System.out.println(s); }
+    { Log.i("Ocl", s); }
 
     public static void displayint(int i)
-    { System.out.println("" + i); }
+    { Log.i("Ocl", "" + i); }
 
     public static void displaylong(long i)
-    { System.out.println("" + i); }
+    { Log.i("Ocl", "" + i); }
 
     public static void displayboolean(boolean b)
-    { System.out.println("" + b); }
+    { Log.i("Ocl", "" + b); }
 
     public static void displaydouble(double d)
-    { System.out.println("" + d); }
+    { Log.i("Ocl", "" + d); }
 
     public static void displaySequence(List s)
-    { System.out.println(s); }
+    { Log.i("Ocl", s.toString()); }
 
     public static void displaySet(Set s)
-    { System.out.println(s); }
+    { Log.i("Ocl", s.toString()); }
 
     public static void displayMap(Map s)
-    { System.out.println(s); }
+    {Log.i("Ocl", s.toString()); }
 
     public static void displayOclProcess(OclProcess s)
-    { System.out.println(s.actualThread); }
+    { Log.i("Ocl", s.actualThread.toString()); }
 
     public static void displayOclType(OclType s)
-    { System.out.println(s.actualMetatype); }
+    { Log.i("Ocl", s.actualMetatype.toString()); }
 
 
     public static <T> HashSet<T> selectSet(Set<T> s, Predicate<T> f)
@@ -94,7 +89,9 @@ class OclMaplet<K,T>
     public static <T> HashSet<T> rejectSet(Set<T> s, Predicate<T> f)
     { HashSet<T> result = new HashSet<T>();
       for (T x : s)
-      { if (f.test(x)) { }
+      { if (f.test(x))     { 
+    	//catch
+    }
         else
 		{ result.add(x); }
       }
@@ -122,7 +119,9 @@ class OclMaplet<K,T>
     { ArrayList<T> result = new ArrayList<T>();
       for (int i = 0; i < s.size(); i++)
       { T x = (T) s.get(i);
-        if (f.test(x)) { }
+        if (f.test(x))     { 
+    	//catch
+    }
         else
         { result.add(x); }
       }
@@ -141,7 +140,9 @@ class OclMaplet<K,T>
     public static <T> boolean forAll(Collection<T> s, Predicate<T> f)
     { boolean result = true;
       for (T x : s)
-      { if (f.test(x)) { }
+      { if (f.test(x))     { 
+    	//catch
+    }
         else
         { return false; }
       }
@@ -381,7 +382,9 @@ class OclMaplet<K,T>
     public static <T> ArrayList<T> asOrderedSet(Collection<T> c)
     { ArrayList<T> res = new ArrayList<T>();
       for (T x : c)
-      { if (res.contains(x)) { }
+      { if (res.contains(x))     { 
+    	//catch
+    }
         else
         { res.add(x); }
       }
@@ -479,11 +482,15 @@ class OclMaplet<K,T>
   public static <T> Set<T> symmetricDifference(Collection<T> a, Collection<T> b)
   { Set<T> res = new HashSet<T>();
     for (T x : a)
-    { if (b.contains(x)) { }
+    { if (b.contains(x))     { 
+    	//catch
+    }
       else { res.add(x); }
     }
     for (T y : b)
-    { if (a.contains(y)) { }
+    { if (a.contains(y))     { 
+    	//catch
+    }
       else { res.add(y); }
     }
     return res;
@@ -787,7 +794,7 @@ class OclMaplet<K,T>
 
 
     public static <T> T last(List<T> v)
-    { if (v.size() == 0) { return null; }
+    { if (v.isEmpty()) { return null; }
       return v.get(v.size() - 1);
     }
 
@@ -795,7 +802,7 @@ class OclMaplet<K,T>
 
     public static <T> ArrayList<List<T>> subcollections(ArrayList<T> v)
     { ArrayList<List<T>> res = new ArrayList<List<T>>();
-      if (v.size() == 0)
+      if (v.isEmpty())
       { res.add(new ArrayList<T>()); return res; }
       if (v.size() == 1)
       { res.add(new ArrayList<T>()); res.add(v); return res;
@@ -816,11 +823,12 @@ class OclMaplet<K,T>
 
     public static <T> HashSet<Set<T>> subcollections(HashSet<T> v)
     { HashSet<Set<T>> res = new HashSet<Set<T>>();
-      if (v.size() == 0) { res.add(new HashSet<T>()); return res; }
+      if (v.isEmpty()) { res.add(new HashSet<T>()); return res; }
       if (v.size() == 1) { res.add(new HashSet<T>()); res.add(v); return res;
        }
       HashSet<T> s = new HashSet<T>();
-      T x = null; int i = 0;
+      T x = null; 
+      int i = 0;
       for (T o : v)
       { if (i == 0) { x = o; i++; }
          else { s.add(o); }
@@ -1021,14 +1029,14 @@ class OclMaplet<K,T>
   }
 
 
-  public static boolean oclIsTypeOf(Object x, String E)
+  public static boolean oclIsTypeOf(Object x, String e)
   { try {
-      if (x.getClass() == Class.forName(E))
+      if (x.getClass() == Class.forName(e))
       { return true; }
       else
       { return false; }
     }
-    catch (Exception e) { return false; }
+    catch (Exception ex) { return false; }
   }
 
 
@@ -1155,7 +1163,9 @@ class OclMaplet<K,T>
 
     for (D key : keys)
     { if (m2.containsKey(key))
-      { }
+          { 
+    	//catch
+    }
       else
       { res.put(key,m1.get(key));  }
     }
@@ -1179,7 +1189,9 @@ class OclMaplet<K,T>
 
     for (D key : keys)
     { if (v.equals(m.get(key)))
-      { }
+          { 
+    	//catch
+    }
       else
       { res.put(key,m.get(key));  }
     }
@@ -1223,7 +1235,9 @@ class OclMaplet<K,T>
     Set<D> keys = m1.keySet();
 
     for (D key : keys)
-    { if (ks.contains(key)) { }
+    { if (ks.contains(key))     { 
+    	//catch
+    }
       else
       { res.put(key,m1.get(key));  }
     }
@@ -1246,7 +1260,9 @@ class OclMaplet<K,T>
     Set<D> keys = m.keySet();
     for (D k : keys)
     { R value = m.get(k);
-      if (f.test(value)) {}
+      if (f.test(value)) {
+      	//value
+      }
       else
       { result.put(k,value); }
     }
@@ -1291,7 +1307,9 @@ class OclMaplet<K,T>
   { Set<D> keys = m.keySet();
     for (D k : keys)
     { R value = m.get(k);
-      if (f.test(value)) { }
+      if (f.test(value))     { 
+    	//catch
+    }
       else
       { return false; }
     }
@@ -1399,7 +1417,6 @@ class OclMaplet<K,T>
  { StringBuffer buff = new StringBuffer();
    int x = 0;
    int len = rows.length();
-   boolean instring = false;
    ArrayList<String> res = new ArrayList<String>();
    while (x < len)
    { char chr = rows.charAt(x);
