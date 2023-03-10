@@ -8,7 +8,6 @@ import android.media.ExifInterface
 import android.util.Base64
 import com.example.dietpro.mlmodel.ImageClassifier
 import java.io.File
-import java.io.IOException
 
 class ImageRecognitionViewModel constructor(myContext: Context) {
 
