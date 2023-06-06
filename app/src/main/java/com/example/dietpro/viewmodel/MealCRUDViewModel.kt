@@ -18,12 +18,6 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         }
     }
 
-    /* This metatype code requires OclType.java, OclAttribute.java, OclOperation.java */
-    fun initialiseOclTypes() {
-        val mealOclType: OclType = OclType.createByPKOclType("Meal")
-        mealOclType.setMetatype(Meal::class.java)
-    }
-
     private var currentMeal: MealVO? = null
     private var currentMeals: ArrayList<MealVO> = ArrayList()
 
