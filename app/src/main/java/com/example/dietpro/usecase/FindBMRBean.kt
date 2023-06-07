@@ -28,7 +28,7 @@ class FindBMRBean(_c: Context) {
         if (instanceUser == null) {
             errors.add("user must be a valid User id")
         }
-        return errors.size > 0
+        return errors.isNotEmpty()
     }
 
     fun errors(): String {
