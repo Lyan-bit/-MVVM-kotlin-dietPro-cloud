@@ -118,7 +118,7 @@ class ImageClassifier (myContext: Context) {
         val recognitions = ArrayList<Recognition>()
         val recognitionsSize = Math.min(pq.size, MAX_RESULTS)
 
-        if (pq.size != 0) {
+        if (pq.isNotEmpty()) {
             for (i in 0 until recognitionsSize) {
                 recognitions.add(pq.poll())
             }
