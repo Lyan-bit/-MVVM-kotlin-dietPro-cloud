@@ -101,7 +101,7 @@ class MealBean(c: Context) {
 	               errors.add("userName cannot be empty")
 	         }
 	
-	        return errors.size > 0
+	        return errors.isNotEmpty()
 	    }
 	    
 	    fun createMeal() {
@@ -157,7 +157,7 @@ class MealBean(c: Context) {
 	               errors.add("userName cannot be empty")
 	         }
 
-       return errors.size > 0
+       return errors.isNotEmpty()
    }
        
    fun deleteMeal() {
@@ -170,7 +170,7 @@ class MealBean(c: Context) {
 			 if (!allMealmealIds.contains(mealId)) {
 			    errors.add("mealId" + checkParameter)
         }
-        return errors.size > 0
+        return errors.isNotEmpty()
 		}    
 
    	fun isSearchMealError(allMealdatess: List<String>): Boolean {
@@ -178,7 +178,7 @@ class MealBean(c: Context) {
         if (!allMealdatess.contains(dates)) {
             errors.add("dates" + checkParameter)
         }
-        return errors.size > 0
+        return errors.isNotEmpty()
     }
     
 		fun isSearchMealIdError(allMealIds: List<String>): Boolean {
@@ -186,7 +186,7 @@ class MealBean(c: Context) {
    	       if (!allMealIds.contains(mealId)) {
     	       errors.add("mealId" + checkParameter)
     	   }
-           return errors.size > 0
+           return errors.isNotEmpty()
     }
 
     fun errors(): String {
@@ -200,7 +200,7 @@ class MealBean(c: Context) {
 	}
 	else
 	errors.add(mealId + checkParameter)
-        return errors.size > 0
+        return errors.isNotEmpty()
     }
 
     fun addUsereatsMeal() {
@@ -217,7 +217,7 @@ class MealBean(c: Context) {
 	else
 	errors.add(userName + checkParameter)
 	
-        return errors.size > 0
+        return errors.isNotEmpty()
     }
 
     fun removeUsereatsMeal() {
