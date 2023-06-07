@@ -118,7 +118,7 @@ class UserBean(c: Context) {
 	  errors.add("age is not a Double")
 	}
 
-	        return errors.size > 0
+	        return errors.isNotEmpty()
 	    }
 	    
 	    fun createUser() {
@@ -128,7 +128,7 @@ class UserBean(c: Context) {
 
     fun isListUserError(): Boolean {
 	        errors.clear()
-	        return errors.size > 0
+	        return errors.isNotEmpty()
 	    }
 
 
@@ -137,7 +137,7 @@ class UserBean(c: Context) {
    	       if (!allUserIds.contains(userName)) {
     	       errors.add("The userName is not exist")
     	   }
-           return errors.size > 0
+           return errors.isNotEmpty()
     }
 
     fun errors(): String {
