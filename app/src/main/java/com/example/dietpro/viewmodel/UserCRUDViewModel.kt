@@ -128,7 +128,7 @@ class UserCRUDViewModel constructor(context: Context): ViewModel() {
     }
 
     fun findTargetCalories(user: User): Double {
-        var result = 0.0
+        var result : Double
         user.targetCalories  = user.calculateTargetCalories()
         persistUser (user)
         result  = user.targetCalories
@@ -136,7 +136,7 @@ class UserCRUDViewModel constructor(context: Context): ViewModel() {
     }
 
     fun findBMR(user: User): Double {
-        var result = 0.0
+        var result : Double
         user.bmr  = user.calculateBmr()
         persistUser (user)
         result  = user.bmr
@@ -145,7 +145,7 @@ class UserCRUDViewModel constructor(context: Context): ViewModel() {
 
 
     fun caloriesProgress(user: User): Double {
-        var result = 0.0
+        var result : Double
         var progress: Double
         progress  = (user.totalConsumedCalories / user.targetCalories) * 100
         persistUser (user)
