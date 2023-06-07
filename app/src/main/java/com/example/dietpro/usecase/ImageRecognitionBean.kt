@@ -61,7 +61,7 @@ class ImageRecognitionBean(c: Context) {
 				            errors.add("This is not a type of image")
 				        }
 
-        return errors.size > 0
+        return errors.isNotEmpty()
     }
 
     fun errors(): String {
