@@ -30,7 +30,7 @@ class FindTargetCaloriesBean(_c: Context) {
             errors.add("user must be a valid User id")
         }
         
-        return errors.size > 0
+        return errors.isNotEmpty()
     }
 
     fun errors(): String {
