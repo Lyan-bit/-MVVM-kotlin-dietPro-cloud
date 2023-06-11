@@ -10,6 +10,7 @@ package com.example.dietpro.viewmodel; // Place in the relevant package director
 * *****************************/
 /* OCL library for Java version 8+ */
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ocl {
