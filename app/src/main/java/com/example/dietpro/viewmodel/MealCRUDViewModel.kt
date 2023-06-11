@@ -2,9 +2,9 @@ package com.example.dietpro.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.example.dietpro.MealVO
 import com.example.dietpro.database.FirebaseDbi
 import com.example.dietpro.model.Meal
-import com.example.dietpro.model.MealVO
 
 class MealCRUDViewModel constructor(context: Context): ViewModel() {
 
@@ -34,14 +34,14 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         val res: List<MealVO> = listMeal()
         val vo: ArrayList<Meal> = ArrayList()
         for (meal in res) {
-            val itemx = Meal.createByPKMeal(meal.getMealId())
-            itemx.mealId = meal.getMealId()
-            itemx.mealName = meal.getMealName()
-            itemx.userName = meal.getUserName()
-            itemx.dates = meal.getDates()
-            itemx.calories = meal.getCalories()
-            itemx.analysis = meal.getAnalysis()
-            itemx.images = meal.getImages()
+            val itemx = Meal.createByPKMeal(meal.mealId)
+            itemx.mealId = meal.mealId
+            itemx.mealName = meal.mealName
+            itemx.userName = meal.userName
+            itemx.dates = meal.dates
+            itemx.calories = meal.calories
+            itemx.analysis = meal.analysis
+            itemx.images = meal.images
             itemx
             vo.add(itemx)
         }
@@ -67,7 +67,7 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
     fun allMealids(): ArrayList<String> {
         val res: ArrayList<String> = ArrayList()
         for (x in currentMeals.indices) {
-            res.add(currentMeals[x].getMealId() + "")
+            res.add(currentMeals[x].mealId + "")
         }
         return res
     }
@@ -93,17 +93,17 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
     }
 
     fun editMeal(x: MealVO) {
-        var obj = getMealByPK(x.getMealId())
+        var obj = getMealByPK(x.mealId)
         if (obj == null) {
-            obj = Meal.createByPKMeal(x.getMealId())
+            obj = Meal.createByPKMeal(x.mealId)
         }
-        obj.mealId = x.getMealId()
-        obj.mealName = x.getMealName()
-        obj.userName = x.getUserName()
-        obj.calories = x.getCalories()
-        obj.analysis = x.getAnalysis()
-        obj.dates = x.getDates()
-        obj.images = x.getImages()
+        obj.mealId = x.mealId
+        obj.mealName = x.mealName
+        obj.userName = x.userName
+        obj.calories = x.calories
+        obj.analysis = x.analysis
+        obj.dates = x.dates
+        obj.images = x.images
         cdb.persistMeal(obj)
         currentMeal = x
     }
@@ -146,16 +146,16 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
     fun searchByMealid(id: String) : ArrayList<Meal> {
         var itemsList = ArrayList<Meal>()
         for (x in currentMeals.indices) {
-            if ( currentMeals[x].getMealId() == id) {
+            if ( currentMeals[x].mealId == id) {
                 val vo: MealVO = currentMeals[x]
-                val itemx = Meal.createByPKMeal(vo.getMealId())
-                itemx.mealId = vo.getMealId()
-                itemx.mealName = vo.getMealName()
-                itemx.calories = vo.getCalories()
-                itemx.dates = vo.getDates()
-                itemx.images = vo.getImages()
-                itemx.analysis = vo.getAnalysis()
-                itemx.userName = vo.getUserName()
+                val itemx = Meal.createByPKMeal(vo.mealId)
+                itemx.mealId = vo.mealId
+                itemx.mealName = vo.mealName
+                itemx.calories = vo.calories
+                itemx.dates = vo.dates
+                itemx.images = vo.images
+                itemx.analysis = vo.analysis
+                itemx.userName = vo.userName
                 itemsList.add(itemx)
             }
         }
@@ -165,7 +165,7 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
     fun allMealuserNames() : ArrayList<String> {
         val res: ArrayList<String> = ArrayList()
         for (x in currentMeals.indices) {
-            res.add(currentMeals[x].getUserName())
+            res.add(currentMeals[x].userName)
         }
         return res
     }
@@ -173,7 +173,7 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
     fun allMealdates() : ArrayList<String> {
         val res: ArrayList<String> = ArrayList()
         for (x in currentMeals.indices) {
-            res.add(currentMeals[x].getDates())
+            res.add(currentMeals[x].dates)
         }
         return res
     }
@@ -181,16 +181,16 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
     fun searchByMealdates(dates: String) : ArrayList<Meal> {
         var itemsList = ArrayList<Meal>()
         for (x in currentMeals.indices) {
-            if ( currentMeals[x].getDates() == dates) {
+            if ( currentMeals[x].dates == dates) {
                 val vo: MealVO = currentMeals[x]
-                val itemx = Meal.createByPKMeal(vo.getMealId())
-                itemx.mealId = vo.getMealId()
-                itemx.mealName = vo.getMealName()
-                itemx.calories = vo.getCalories()
-                itemx.dates = vo.getDates()
-                itemx.images = vo.getImages()
-                itemx.analysis = vo.getAnalysis()
-                itemx.userName = vo.getUserName()
+                val itemx = Meal.createByPKMeal(vo.mealId)
+                itemx.mealId = vo.mealId
+                itemx.mealName = vo.mealName
+                itemx.calories = vo.calories
+                itemx.dates = vo.dates
+                itemx.images = vo.images
+                itemx.analysis = vo.analysis
+                itemx.userName = vo.userName
                 itemsList.add(itemx)
             }
         }
