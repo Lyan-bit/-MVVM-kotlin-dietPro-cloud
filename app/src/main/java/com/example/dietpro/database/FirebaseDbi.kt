@@ -1,7 +1,7 @@
 package com.example.dietpro.database
 
+import com.example.dietpro.MealVO
 import com.example.dietpro.model.Meal
-import com.example.dietpro.model.MealVO
 import com.google.firebase.database.*
 
 class FirebaseDbi() {
@@ -56,7 +56,7 @@ class FirebaseDbi() {
 
     fun persistMeal(ex: Meal) {
         val evo = MealVO(ex)
-        val key = evo.getMealId()
+        val key = evo.mealId
         if (database == null) {
             return
         }
