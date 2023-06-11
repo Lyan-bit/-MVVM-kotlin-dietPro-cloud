@@ -1,4 +1,4 @@
-package com.example.dietpro
+package com.example.dietpro.model
 
 import java.util.ArrayList
 
