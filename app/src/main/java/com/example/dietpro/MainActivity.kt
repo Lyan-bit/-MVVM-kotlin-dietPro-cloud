@@ -3,11 +3,9 @@ package com.example.dietpro
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
-import com.example.dietpro.adapter.SectionsPagerAdapter
+import com.example.dietpro.adapter.PagerAdapter
 import com.example.dietpro.fragments.ListMealFragment
 import com.example.dietpro.fragments.ListUserFragment
-import com.example.dietpro.model.MealVO
-import com.example.dietpro.model.UserVO
 import com.example.dietpro.viewmodel.MealCRUDViewModel
 import com.example.dietpro.viewmodel.UserCRUDViewModel
 import com.google.android.material.tabs.TabLayout
@@ -20,7 +18,7 @@ class MainActivity : AppCompatActivity() , ListMealFragment.OnListMealFragmentIn
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val myPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
+        val myPagerAdapter = PagerAdapter(this, supportFragmentManager)
         val viewpager: ViewPager = findViewById(R.id.view_pager)
         viewpager.adapter = myPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
