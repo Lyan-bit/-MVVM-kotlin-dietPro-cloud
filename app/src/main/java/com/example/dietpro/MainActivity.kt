@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.dietpro.adapter.PagerAdapter
 import com.example.dietpro.fragments.ListMealFragment
 import com.example.dietpro.fragments.ListUserFragment
+import com.example.dietpro.model.UserVO
 import com.example.dietpro.viewmodel.MealCRUDViewModel
 import com.example.dietpro.viewmodel.UserCRUDViewModel
 import com.google.android.material.tabs.TabLayout
