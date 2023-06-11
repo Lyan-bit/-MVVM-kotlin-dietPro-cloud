@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dietpro.model.MealVO
+import com.example.dietpro.MealVO
 import com.example.dietpro.R
 import com.example.dietpro.adapter.MealRecyclerViewAdapter
 import com.example.dietpro.viewmodel.MealCRUDViewModel
