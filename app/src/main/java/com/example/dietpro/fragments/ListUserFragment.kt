@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dietpro.R
+import com.example.dietpro.UserVO
 import com.example.dietpro.adapter.UserRecyclerViewAdapter
-import com.example.dietpro.model.UserVO
 import com.example.dietpro.viewmodel.UserCRUDViewModel
 import java.lang.RuntimeException
 
