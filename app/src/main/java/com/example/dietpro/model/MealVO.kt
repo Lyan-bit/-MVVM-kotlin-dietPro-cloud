@@ -1,5 +1,6 @@
 package com.example.dietpro
 
+import com.example.dietpro.model.Meal
 import java.util.ArrayList
 
 class MealVO  {
