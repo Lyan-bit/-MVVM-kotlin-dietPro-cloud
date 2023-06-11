@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
-import com.example.dietpro.model.MealVO
+import com.example.dietpro.MealVO
 import com.example.dietpro.R
 import com.example.dietpro.fragments.ListMealFragment
 
@@ -28,13 +28,13 @@ class MealRecyclerViewAdapter (items: List<MealVO>, listener: ListMealFragment.O
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
         holder.mItem = mValues[position]
-        holder.searchMealByDateMealIdView.text = " " + mValues[position].getMealId() + " "
-        holder.searchMealByDateMealNameView.text = " " + mValues[position].getMealName() + " "
-        holder.searchMealByDateCaloriesView.text = " " + mValues[position].getCalories() + " "
-        holder.searchMealByDateDatesView.text = " " + mValues[position].getDates() + " "
+        holder.searchMealByDateMealIdView.text = " " + mValues[position].mealId + " "
+        holder.searchMealByDateMealNameView.text = " " + mValues[position].mealName + " "
+        holder.searchMealByDateCaloriesView.text = " " + mValues[position].calories + " "
+        holder.searchMealByDateDatesView.text = " " + mValues[position].dates + " "
         val dimage: Bitmap? = try {
             // convert base64 to bitmap android
-            val decodedString: ByteArray = Base64.decode(mValues[position].getImages(), Base64.DEFAULT)
+            val decodedString: ByteArray = Base64.decode(mValues[position].images, Base64.DEFAULT)
             val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
             decodedByte
         }
@@ -43,8 +43,8 @@ class MealRecyclerViewAdapter (items: List<MealVO>, listener: ListMealFragment.O
             null
         }
         holder.searchMealByDateImagesView.setImageBitmap(dimage)
-        holder.searchMealByDateAnalysisView.text = " " + mValues[position].getAnalysis() + " "
-        holder.searchMealByDateUserNameView.text = " " + mValues[position].getUserName() + " "
+        holder.searchMealByDateAnalysisView.text = " " + mValues[position].analysis + " "
+        holder.searchMealByDateUserNameView.text = " " + mValues[position].userName + " "
 
         holder.mView.setOnClickListener { mListener.onListMealFragmentInteraction(holder.mItem) }
     }
