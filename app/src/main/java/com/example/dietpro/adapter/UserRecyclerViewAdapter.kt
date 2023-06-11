@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dietpro.R
-import com.example.dietpro.UserVO
 import com.example.dietpro.fragments.ListUserFragment
+import com.example.dietpro.model.UserVO
 
 class UserRecyclerViewAdapter (items: List<UserVO>, listener: ListUserFragment.OnListUserFragmentInteractionListener)
     : RecyclerView.Adapter<UserRecyclerViewAdapter.UserViewHolder>() {
