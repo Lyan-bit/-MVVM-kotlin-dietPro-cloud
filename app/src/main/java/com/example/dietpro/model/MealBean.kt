@@ -1,6 +1,7 @@
 package com.example.dietpro.model
 
 import android.content.Context
+import com.example.dietpro.MealVO
 import com.example.dietpro.viewmodel.MealCRUDViewModel
 import java.lang.Exception
 import java.util.regex.Pattern
