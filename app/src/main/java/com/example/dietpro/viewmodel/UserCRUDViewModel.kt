@@ -3,9 +3,9 @@ package com.example.dietpro.viewmodel
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.example.dietpro.ModelPreferencesManager
+import com.example.dietpro.model.UserVO
 import com.example.dietpro.model.Meal
 import com.example.dietpro.model.User
-import com.example.dietpro.model.UserVO
 import java.util.ArrayList
 
 class UserCRUDViewModel constructor(context: Context): ViewModel() {
@@ -54,16 +54,16 @@ class UserCRUDViewModel constructor(context: Context): ViewModel() {
         var res = ArrayList<User>()
         for (x in currentUsers.indices) {
             val vo: UserVO = currentUsers[x]
-            val itemx = User.createByPKUser(vo.getUserName())
-            itemx.userName = vo.getUserName()
-            itemx.gender = vo.getGender()
-            itemx.heights = vo.getHeights()
-            itemx.weights = vo.getWeights()
-            itemx.activityLevel = vo.getActivityLevel()
-            itemx.age = vo.getAge()
-            itemx.targetCalories = vo.getTargetCalories()
-            itemx.totalConsumedCalories = vo.getTotalConsumedCalories()
-            itemx.bmr = vo.getBmr()
+            val itemx = User.createByPKUser(vo.userName)
+            itemx.userName = vo.userName
+            itemx.gender = vo.gender
+            itemx.heights = vo.heights
+            itemx.weights = vo.weights
+            itemx.activityLevel = vo.activityLevel
+            itemx.age = vo.age
+            itemx.targetCalories = vo.targetCalories
+            itemx.totalConsumedCalories = vo.totalConsumedCalories
+            itemx.bmr = vo.bmr
             res.add(itemx)
         }
         return res
@@ -85,15 +85,15 @@ class UserCRUDViewModel constructor(context: Context): ViewModel() {
         } else {
             val vo: UserVO = res[0]
             val itemx = User.createByPKUser(_val)
-            itemx.userName = vo.getUserName()
-            itemx.gender = vo.getGender()
-            itemx.heights = vo.getHeights()
-            itemx.weights = vo.getWeights()
-            itemx.activityLevel = vo.getActivityLevel()
-            itemx.age = vo.getAge()
-            itemx.targetCalories = vo.getTargetCalories()
-            itemx.totalConsumedCalories = vo.getTotalConsumedCalories()
-            itemx.bmr = vo.getBmr()
+            itemx.userName = vo.userName
+            itemx.gender = vo.gender
+            itemx.heights = vo.heights
+            itemx.weights = vo.weights
+            itemx.activityLevel = vo.activityLevel
+            itemx.age = vo.age
+            itemx.targetCalories = vo.targetCalories
+            itemx.totalConsumedCalories = vo.totalConsumedCalories
+            itemx.bmr = vo.bmr
             itemx
         }
     }
@@ -106,7 +106,7 @@ class UserCRUDViewModel constructor(context: Context): ViewModel() {
         currentUsers = listUser()
         val res: ArrayList<String> = ArrayList()
         for (user in currentUsers.indices) {
-            res.add(currentUsers[user].getUserName())
+            res.add(currentUsers[user].userName)
         }
         return res
     }
